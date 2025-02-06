@@ -14,11 +14,18 @@
         buildInputs = with pkgs; [
             rye
             steam-run
+            # Required for SSL certificates?
+            cacert
+            # Required for yt-dlp and some of the frame splitting stuff we do
+            ffmpeg
         ];
 
         # This is _disgusting_, but we alias "rye" to "steam-run rye" because... NixOS
         shellHook = ''
           alias rye="steam-run rye"
+
+          # Required for SSL certificates?
+          export SSL_CERT_FILE=${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt
         '';
       };
     });

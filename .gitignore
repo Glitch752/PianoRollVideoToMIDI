@@ -4,3 +4,8 @@ __pycache__
 *.pyc
 *.pyo
 .venv
+
+# Inputs and outputs
+*.mp4
+*.webm
+*.mid
